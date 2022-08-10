@@ -8,7 +8,6 @@ import (
 
 // Usage: your_docker.sh run <image> <command> <arg1> <arg2> ...
 func main() {
-	//fmt.Println("Starting program")
 
 	command := os.Args[3]
 	args := os.Args[4:len(os.Args)]
@@ -16,11 +15,11 @@ func main() {
 	cmd := exec.Command(command, args...)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
-	_, err := cmd.Output()
+
+	err := cmd.Run()
 	if err != nil {
 		fmt.Printf("Err: %v", err)
 		os.Exit(1)
 	}
 
-	//fmt.Print(string(output))
 }
