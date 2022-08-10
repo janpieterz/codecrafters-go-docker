@@ -16,11 +16,11 @@ func main() {
 	cmd := exec.Command(command, args...)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
-	output, err := cmd.Output()
+	_, err := cmd.Output()
 	if err != nil {
 		fmt.Printf("Err: %v", err)
 		os.Exit(1)
 	}
 
-	fmt.Print(string(output))
+	//fmt.Print(string(output))
 }
